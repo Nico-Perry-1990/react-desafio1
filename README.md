@@ -18,3 +18,6 @@ Este proyecto utiliza **React + Vite**
 
 ### 4. Creacion de formularios de registro y de ingreso
 - Se crea el formulario de registro y el formulario de log in con las condiciones del desafio.
+
+### 5. Corrección del tipo del input 
+- pasa de type="text" a type="email"

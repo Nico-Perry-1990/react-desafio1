@@ -36,7 +36,7 @@ return (
                         <div>
                             <label htmlFor="email" class="block text-gray-700 font-medium mb-2">Email</label>
                             <input 
-                            type="text"
+                            type="email"
                             name="email" 
                             placeholder="ejemplo@mail.com" 
                             className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none"
