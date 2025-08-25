@@ -1,12 +1,20 @@
-# React + Vite
+# Proyecto React con Vite
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Este proyecto utiliza **React + Vite**
+---
 
-Currently, two official plugins are available:
+## Cambios realizados:
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+### 1. Subida del primer Hito 17.08.2025
+- Se realiza el primer upload del primer hito 
 
-## Expanding the ESLint configuration
+### 2. Reubicacion de los componentes 24.08.2025
+- Antes se intentaba importar con rutas incorrectas como:
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+### 3. Corrección de imports absolutos/relativos 24.08.2025
+- Antes se intentaba importar con rutas incorrectas como:
+  ```js
+  import Home from 'src/assets/components/Home.jsx'; // ❌
+
+### 4. Creacion de formularios de registro y de ingreso
+- Se crea el formulario de registro y el formulario de log in con las condiciones del desafio.
