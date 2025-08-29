@@ -3,7 +3,7 @@ import data from "../assets/data/data.js";
 
 function Home() {
   return (
-    <div className="flex flex-wrap justify-center gap-6 bg-gray-600 py-10 h-150">
+    <div className="flex flex-wrap justify-center gap-6 bg-black py-10 max-h-screen">
       {data.map(e => (
         <Card 
           key={e.id} 

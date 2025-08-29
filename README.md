@@ -21,3 +21,6 @@ Este proyecto utiliza **React + Vite**
 
 ### 5. Corrección del tipo del input 
 - pasa de type="text" a type="email"
+
+### 6. Corrección modelo de las cartas y body
+- armonización del diseño de la sección de cartas, se agrega además la fuente Roboto.
