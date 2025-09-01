@@ -1,6 +1,6 @@
-# Proyecto React con Vite
+# Proyecto Pizzería Mamma Mía
 
-Este proyecto utiliza **React + Vite**
+# Este proyecto utiliza **React + Vite**
 ---
 
 ## Cambios realizados:
@@ -24,3 +24,21 @@ Este proyecto utiliza **React + Vite**
 
 ### 6. Corrección modelo de las cartas y body
 - armonización del diseño de la sección de cartas, se agrega además la fuente Roboto.
+
+### 7. Actualizacion del archivo de data y la cantidad de cartas a renderizar
+- Se trae un nuevo archivo externo para renderizar los formatos de pizzas. 
+- Se crea una lista con los ingredientes
+- Se renderizan 6 cartas en Home.
+
+### 8. Creacion de un cart con obrenderizacion dinamica
+- Se crea un el componente Cart.
+- Se renderizan las pizzas de pizzaCart
+- Se crea funcion donde se crean estados [cart, setCart] para actualizar las cantidades del carrito.
+- Se crea funcion para aumentar o disminuir cantidades dentro del carrito:
+    1. updateCount(id, delta): - Con id se identifica el producto a actualizar y con delta se actualiza en 1 unidad las cantidades al presionar los botones (+) o (-)
+    2. setCart((prevCart) => ...) - Callback para mantener actualizada a la version mas reciente del carrito.
+    3. prevCart.map((item) => ...) -  Recorre y actualiza cada item del carrito, en caso de ser necesario.
+    4. item.id === id ? ... : item - Verifica si el ID actualizar coincide con el ID del item, en caso de que si, lo actualiza; en el caso contrario lo deja sin modifficaciones.
+    5. { ...item, count: Math.max(item.count + delta, 0) } - Con el operador Spread (...item), se traen todas las propiedades originales del item. con la funcion count: Math.max(item.count + delta, 0) se suma o resta segun la accion del usuario. Math.max asegura que el minimo sea 0.
+
+### 9. Mi cabeza exploto. 

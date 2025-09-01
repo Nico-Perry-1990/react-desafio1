@@ -6,7 +6,7 @@ function Card ({img, name, ingredients, price}) {
     });
 
   return (
-    <div className="bg-gray-100 m-3 rounded-lg overflow-hidden shadow-md transform transition duration-300 hover:scale-105 hover:shadow-white w-72">
+    <div className="bg-gray-100 m-3 rounded-lg overflow-hidden shadow-md transform transition duration-300 hover:scale-105 hover:shadow-white w-72 h-[550px]">
       {/* Imagen */}
       <img
         src={img}
