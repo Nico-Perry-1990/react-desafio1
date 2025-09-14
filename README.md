@@ -41,4 +41,5 @@
     4. item.id === id ? ... : item - Verifica si el ID actualizar coincide con el ID del item, en caso de que si, lo actualiza; en el caso contrario lo deja sin modifficaciones.
     5. { ...item, count: Math.max(item.count + delta, 0) } - Con el operador Spread (...item), se traen todas las propiedades originales del item. con la funcion count: Math.max(item.count + delta, 0) se suma o resta segun la accion del usuario. Math.max asegura que el minimo sea 0.
 
-### 9. Mi cabeza exploto. 
+### 9. Hito 4: Consumo de datos de APIs
+- Se traen datos de las pizzas desde una API con useEffect.

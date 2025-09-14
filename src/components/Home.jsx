@@ -1,8 +1,9 @@
 import Card from "./Card.jsx";
 // import data from "../assets/data/data.js";
-import {pizzas} from "../assets/data/pizzas.js"
+import usePizzas from "../assets/data/pizzas.js";
 
 function Home() {
+  const pizzas = usePizzas();
   return (
     <div className="flex flex-wrap justify-center gap-6 bg-black py-10 min-h-screen">
       {pizzas.map(e => (
