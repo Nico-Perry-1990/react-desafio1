@@ -1,4 +1,4 @@
-import Card from "./Card.jsx";
+import Card from "../components/Card.jsx";
 // import data from "../assets/data/data.js";
 import usePizzas from "../assets/data/pizzas.js";
 
