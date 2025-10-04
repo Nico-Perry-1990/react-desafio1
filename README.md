@@ -44,7 +44,7 @@
 ### 9. Hito 4: Consumo de datos de APIs
 - Se traen datos de las pizzas desde una API con useEffect.
 
-### 10. Hito 5: Consumo de datos de APIs
+### 10. Hito 5: React Router I
 - Se actualiza version de React para que funcione con react router.
 - Se distribuyen y crean paginas segun lo especificado en la rubrica del desafio.
 - Se generan las rutas para cada pagina. 
