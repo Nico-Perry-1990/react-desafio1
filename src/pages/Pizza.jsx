@@ -1,31 +1,35 @@
 import { useEffect, useState } from "react";
+import { useParams } from "react-router-dom";
 import Card from "../components/Card.jsx";
 
-function Pizza(){
-const [pizzas, setPizzas] = useState(null)
+function Pizza() {
+  const { id } = useParams();
+  const [pizza, setPizza] = useState(null);
 
-async function  getPizzas() {
-  const res = await fetch("http://localhost:5000/api/pizzas/p001")
-  const data = await res.json()
-  setPizzas(data)
-}
+  async function getPizza() {
+    const res = await fetch(`http://localhost:5000/api/pizzas/${id}`);
+    const data = await res.json();
+    setPizza(data);
+  }
 
-useEffect(() => {
-  getPizzas()
-},[])
-return (  
-    <div className="flex flex-wrap justify-center gap-6 bg-black py-10 min-h-screen">
-        {pizzas && (
-        <Card 
-            key={pizzas.id} 
-            img={pizzas.img} 
-            name={pizzas.name} 
-            ingredients={pizzas.ingredients} 
-            price={pizzas.price} 
-        />
-        )}
+  useEffect(() => {
+    getPizza();
+  }, [id]);
+
+  if (!pizza) return <p className="text-center text-white">Cargando...</p>;
+
+  return (
+    <div className="flex justify-center bg-black py-10 min-h-screen">
+      <Card
+        key={pizza.id}
+        id={pizza.id}
+        img={pizza.img}
+        name={pizza.name}
+        ingredients={pizza.ingredients}
+        price={pizza.price}
+      />
     </div>
-    );
+  );
 }
 
 export default Pizza;

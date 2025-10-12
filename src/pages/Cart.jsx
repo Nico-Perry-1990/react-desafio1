@@ -1,7 +1,9 @@
 import { useCart } from "../context/CartContext";
+import { useUser } from "../context/UserContext";
 
 const Cart = () => {
   const { cart, updateCount, total } = useCart();
+  const { token } = useUser();
 
   return (
     <div className="bg-white p-6 rounded-lg shadow-md max-w-md mx-auto max-h-screen flex flex-col">
@@ -48,7 +50,14 @@ const Cart = () => {
             Total: ${total.toLocaleString("es-CL")}
           </span>
         </div>
-        <button className="mt-4 w-full bg-black text-white py-2 rounded-lg hover:bg-gray-800">
+        <button
+          disabled={!token}
+          className={`mt-4 w-full py-2 rounded-lg transition ${
+            token
+              ? "bg-black text-white hover:bg-gray-800"
+              : "bg-gray-400 text-gray-700 cursor-not-allowed"
+          }`}
+        >
           Pagar
         </button>
       </div>
