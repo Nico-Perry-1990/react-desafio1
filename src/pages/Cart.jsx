@@ -1,20 +1,7 @@
-import { useState } from "react";
-import { pizzaCart } from "../assets/data/pizzas.js";
+import { useCart } from "../context/CartContext";
 
 const Cart = () => {
-  const [cart, setCart] = useState(pizzaCart);
-
-  const updateCount = (id, delta) => {
-    setCart((prevCart) =>
-      prevCart.map((item) =>
-        item.id === id
-          ? { ...item, count: Math.max(item.count + delta, 0) } 
-          : item
-      )
-    );
-  };
-
-  const total = cart.reduce((sum, item) => sum + item.price * item.count, 0);
+  const { cart, updateCount, total } = useCart();
 
   return (
     <div className="bg-white p-6 rounded-lg shadow-md max-w-md mx-auto max-h-screen flex flex-col">

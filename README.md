@@ -48,3 +48,7 @@
 - Se actualiza version de React para que funcione con react router.
 - Se distribuyen y crean paginas segun lo especificado en la rubrica del desafio.
 - Se generan las rutas para cada pagina. 
+
+### 11. Hito 6: Context
+- Se crea componente de CartContext para que el usuario pueda agregar y quitar items al carrito de compras. 
+- Se ordena la estructura del proyecto para poder incluir el elemnto context. 

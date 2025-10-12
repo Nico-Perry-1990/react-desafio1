@@ -1,7 +1,8 @@
 import { Link } from "react-router-dom";
+import { useCart } from "../context/CartContext";
 
 function Navbar() {
-  const total = 25000;
+  const { total } = useCart();
   const token = false;
 
   const formatPrice = (amount) =>
@@ -41,6 +42,7 @@ function Navbar() {
             <span className="absolute left-0 -bottom-1 w-0 h-1 bg-gray-100 transition-all duration-300 group-hover:w-full"></span>
           </Link>
         ))}
+
         <Link
           to="/cart"
           className="relative group text-gray-200 border border-gray-600 px-4 py-2 rounded-md bg-transparent transition"
