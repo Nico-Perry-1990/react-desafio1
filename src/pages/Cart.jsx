@@ -1,57 +1,52 @@
 import { useCart } from "../context/CartContext";
 import { useUser } from "../context/UserContext";
+import { useState } from "react";
+import { CartProvider } from "../context/CartContext";
 
 const Cart = () => {
   const { cart, updateCount, total } = useCart();
   const { token } = useUser();
+  const [mensaje, setMensaje] = useState("");
+
+  const handleCheckout = async () => {
+    try {
+      const res = await fetch("http://localhost:5000/api/checkouts", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: `Bearer ${token}`,
+        },
+        body: JSON.stringify({ cart }),
+      });
+
+      if (!res.ok) {
+        throw new Error("Error al procesar la compra");
+      }
+
+      setMensaje("✅ Compra realizada con éxito");
+    } catch (error) {
+      console.error(error);
+      setMensaje("❌ No se pudo completar la compra");
+    }
+  };
 
   return (
-    <div className="bg-white p-6 rounded-lg shadow-md max-w-md mx-auto max-h-screen flex flex-col">
+    <div className="bg-white p-6 rounded-lg shadow-md max-w-md mx-auto">
       <h2 className="text-lg font-semibold mb-4">Detalles del pedido:</h2>
-      <div className="space-y-3 flex-grow overflow-y-auto">
-        {cart.map((pizza) => (
-          <div
-            key={pizza.id}
-            className="flex items-center justify-between border-b pb-2"
-          >
-            <div className="flex items-center gap-3">
-              <img
-                src={pizza.img}
-                alt={pizza.name}
-                className="w-12 h-12 rounded-md object-cover"
-              />
-              <span className="font-medium capitalize">{pizza.name}</span>
-            </div>
 
-            <span className="font-medium">
-              ${(pizza.price * pizza.count).toLocaleString("es-CL")}
-            </span>
-            <div className="flex items-center gap-2">
-              <button
-                onClick={() => updateCount(pizza.id, -1)}
-                className="border border-red-400 text-red-500 px-2 rounded"
-              >
-                -
-              </button>
-              <span>{pizza.count}</span>
-              <button
-                onClick={() => updateCount(pizza.id, +1)}
-                className="border border-blue-400 text-blue-500 px-2 rounded"
-              >
-                +
-              </button>
-            </div>
-          </div>
-        ))}
-      </div>
-      <div className="mt-6">
-        <div className="flex justify-between items-center">
-          <span className="text-xl font-bold">
-            Total: ${total.toLocaleString("es-CL")}
-          </span>
+      {cart.map((pizza) => (
+        <div key={pizza.id} className="flex justify-between items-center mb-2">
+          <span>{pizza.name}</span>
+          <span>${(pizza.price * pizza.count).toLocaleString("es-CL")}</span>
         </div>
+      ))}
+
+      <div className="mt-4">
+        <p className="font-bold text-lg">Total: ${total.toLocaleString("es-CL")}</p>
+
         <button
           disabled={!token}
+          onClick={handleCheckout}
           className={`mt-4 w-full py-2 rounded-lg transition ${
             token
               ? "bg-black text-white hover:bg-gray-800"
@@ -60,6 +55,8 @@ const Cart = () => {
         >
           Pagar
         </button>
+
+        {mensaje && <p className="mt-3 text-center">{mensaje}</p>}
       </div>
     </div>
   );

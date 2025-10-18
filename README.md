@@ -56,3 +56,7 @@
 ### 12. Hito 7: React Router II
 - Implementacion de useParams con id de pizza en Pizza.jsx y Card.
 - Se implementa una ruta protegida. 
+
+### 13. Hito 8: JWT
+- se implementa la creación de usuario con JWT, quedando funcional tanto register como login.
+
